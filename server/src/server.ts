@@ -1,9 +1,13 @@
 import express from 'express'
+import cors from 'cors'
 import { PrismaClient } from '@prisma/client'
 import { convertHoursToMinutes } from './utils/convert-hours-to-minutes'
+import { convertMinutesToHours } from './utils/convert-minutes-to-hours'
 
 const app = express()
 app.use(express.json())
+app.use(cors())
+
 const prisma = new PrismaClient({
   log: ['query']
 })
@@ -34,7 +38,6 @@ app.post('/games/:id/ads', async (req, res) => {
       hourStart: convertHoursToMinutes(body.hourStart),
       hourEnd: convertHoursToMinutes(body.hourEnd),
       discord: body.discord,
-
     }    
   })
   return res.status(201).json(ad);
@@ -59,7 +62,12 @@ app.get('/games/:id/ads', async (req, res) => {
       createdAt: 'desc',
     },
   })
-  return res.json([ads])
+  return res.json([ads.map(ad => ({
+    ...ad,
+    hourStart: convertMinutesToHours(ad.hourStart),
+    hourEnd: convertMinutesToHours(ad.hourEnd),
+    weekDays: ad.weekDays.split(','),
+  }))])
 })
 
 app.get('/ads/:id/discord', async (req, res) => {

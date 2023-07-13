@@ -35,10 +35,10 @@ app.post('/games/:id/ads', async (req, res) => {
       hourEnd: convertHoursToMinutes(body.hourEnd),
       discord: body.discord,
 
-    }
-
-
-})
+    }    
+  })
+  return res.status(201).json(ad);
+});
 
 app.get('/games/:id/ads', async (req, res) => {
   const gameId = req.params.id;
@@ -80,4 +80,3 @@ app.get('/ads/:id/discord', async (req, res) => {
 
 app.listen(3000)
 
-})

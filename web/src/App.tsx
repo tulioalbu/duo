@@ -3,13 +3,14 @@ import logoImagem from './assets/logo-esports.svg'
 import { GameCard } from './components/GameCard'
 import { BannerHome } from './components/BannerHome'
 import { useEffect, useState } from 'react'
+import * as Dialog from '@radix-ui/react-dialog'
 
 interface Game {
-  id: string;
-  title: string;
-  urlImage: string;
+  id: string
+  title: string
+  bannerUrl: string
   _count: {
-    ads: number;
+    ads: number
   }
 }
 
@@ -36,14 +37,27 @@ function App() {
         {games.map(game => (
           <GameCard
             key={game.id}
-            urlImage={game.urlImage}
+            bannerUrl={game.bannerUrl}
             title={game.title}
             adsCount={game._count.ads}
           />
         ))}
       </div>
 
-      <BannerHome />
+      <Dialog.Root>
+        <BannerHome />
+
+        <Dialog.Portal>
+          <Dialog.Overlay />
+
+          <Dialog.Content>
+            <Dialog.Title>Publicar Anúncio</Dialog.Title>
+          </Dialog.Content>
+          <Dialog.Content>
+            
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
     </div>
   )
 }

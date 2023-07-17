@@ -48,13 +48,50 @@ function App() {
         <BannerHome />
 
         <Dialog.Portal>
-          <Dialog.Overlay />
+          <Dialog.Overlay className="bg-black/60 inset-0 fixed" />
 
-          <Dialog.Content>
-            <Dialog.Title>Publicar Anúncio</Dialog.Title>
-          </Dialog.Content>
-          <Dialog.Content>
-            
+          <Dialog.Content className="fixed bg-[#2A2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-[480] shadow-lg shadow-black">
+            <Dialog.Title className='text-3xl' font-black>Publicar Anúncio</Dialog.Title>
+            <Dialog.Content>
+              <form>
+                <div>
+                  <label htmlFor="game">Qual o game?</label>
+                  <input id="game" placeholder='Selecione o game que deseja jogar' />
+                </div>
+
+                <div> 
+                  <label htmlFor="name">Seu nome (ou nickname)</label>
+                  <input id="name" placeholder='Como te chamam dentro do game?' />
+                </div>
+
+                <div>
+                  <div>
+                    <label>htmlFor="yearPlaying">Joga há quantos anos?</label>
+                    <input id="yearPlaying" type='number' placeholder="Tudo bem ser ZERO" />
+                  </div>
+                  <div>
+                    <label htmlFor="Qual seu Discord?"></label>
+                    <input id="discord" type='text' placeholder='Usuario#0000' />
+                    </div>
+
+                  <div>
+                    <label htmlFor='weekDays'>Quando costuma jogar?</label>
+                  </div>
+
+                  <div>
+                    <label htmlFor='hourStart'>Qual o horário do dia?</label>
+                  </div>
+
+                  <div>
+                    <input id='hourStart' type='time' placeholder='De' />
+                    <input id='hourEnd' type='time' placeholder='Até'/>
+                  </div>
+
+                  <div>
+                    <
+              </form>
+
+            </Dialog.Content>
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>

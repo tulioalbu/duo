@@ -14,7 +14,8 @@
     "autoprefixer": "^10.4.14",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",

@@ -66,7 +66,7 @@ function App() {
 
                 <div>
                   <div>
-                    <label>htmlFor="yearPlaying">Joga há quantos anos?</label>
+                    <label htmlFor="yearPlaying">Joga há quantos anos?</label>
                     <input id="yearPlaying" type='number' placeholder="Tudo bem ser ZERO" />
                   </div>
                   <div>
@@ -87,8 +87,7 @@ function App() {
                     <input id='hourEnd' type='time' placeholder='Até'/>
                   </div>
 
-                  <div>
-                    <
+                  </div>
               </form>
 
             </Dialog.Content>
